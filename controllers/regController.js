@@ -1,5 +1,5 @@
-//const User = require('../db/models/user.js');
-//const session = require('express-session');
+const User = require('../db/models/user.js');
+const session = require('express-session');
 
 /**
  * Si se ingresa el nombre todo en mayuscula o de forma

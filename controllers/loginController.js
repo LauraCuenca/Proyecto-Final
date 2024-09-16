@@ -1,5 +1,5 @@
-//const User = require('../db/models/user.js');
-//const session = require('express-session');
+const User = require('../db/models/user.js');
+const session = require('express-session');
 
 const displayLogin = (req, res) => {
     if (session.loggedin) {
@@ -9,7 +9,7 @@ const displayLogin = (req, res) => {
     res.render('login')
 }
 
-const validarLogin = async (req, res) => {
+const validateLogin = async (req, res) => {
     try {
         const mail = req.body.mail;
         const pass = req.body.pass;
@@ -75,10 +75,8 @@ const comprobar_sesion = (req, res, next) => {
     }
 };
 
-
-
 module.exports = {
-    validarLogin,
+    validateLogin,
     displayLogin,
     comprobar_sesion,
     logout,

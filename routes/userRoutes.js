@@ -13,18 +13,17 @@ app.get('/', displayIndex)
 
 //User routes
 app.get('/login', displayLogin)
-//app.post('/login', validateLogin)
-//app.post('/logout', logout)
+app.post('/login', validateLogin)
+app.post('/logout', logout)
 
 app.get('/register', displayRegister)
-//app.post('/register', register)
-//app.post('/checkMail', checkMail)
+app.post('/register', register)
+app.post('/checkMail', checkMail)
 
 app.get('/payment', displayPayment)
 app.get('/saving', displaySaving)
 app.get('/dolarToday', displayDolar)
 app.get('/invest', displayInvest)
-
 
 
 module.exports = app;

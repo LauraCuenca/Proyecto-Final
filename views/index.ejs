@@ -29,7 +29,11 @@
             <a class="nav-link" href="/dolarToday">Dolar Hoy</a>
           </li>
         </ul>
-        <a href="/login" class="btn btn-primary ms-auto" role="button">Iniciar Sesión</a>
+        <% if (session && session.user) { %>
+          <a href="/logout" class="btn btn-danger ms-auto" role="button">Cerrar Sesión</a>
+      <% } else { %>
+          <a href="/login" class="btn btn-primary ms-auto" role="button">Iniciar Sesión</a>
+      <% } %>
       </div>
     </div>
   </nav>
