@@ -1,5 +1,6 @@
 const User = require('../db/models/user.js');
 const session = require('express-session');
+const bcrypt = require('bcrypt');
 
 const displayLogin = (req, res) => {
     if (session.loggedin) {
@@ -16,52 +17,65 @@ const validateLogin = async (req, res) => {
 
         if (!mail || !pass) {
             console.error('Error: campos incompletos');
-            return;
+            return res.status(400).send('Faltan datos');
         }
-        const usuarioEncontrado = await User.findOne({
-            where: {
-                mail: mail,
-                pass: pass
-            }
-        });
+
+        const usuarioEncontrado = await User.findOne({ where: { mail: mail } });
+
         if (!usuarioEncontrado) {
-            res.render('login', {
+            return res.render('login', {
                 alert: true,
-                alertTitle: "Usuario o contraseña invalidos",
+                alertTitle: "Usuario o contraseña inválidos",
                 alertMessage: "",
                 alertIcon: "error",
                 showConfirmButton: false,
                 timer: 1500,
-            })
-            return;
+            });
         }
 
-        //el usuario y la contraseña coinciden
-        session.usuario = usuarioEncontrado.dataValues;
-        session.loggedin = true;
-        res.render('login', {
-            alert: true,
-            alertTitle: "Inicio de sesion exitoso",
-            alertMessage: "",
-            alertIcon: "success",
-            showConfirmButton: false,
-            timer: 1500,
-            ruta: '',
-        });
-        
+        const passwordMatch = await bcrypt.compare(pass, usuarioEncontrado.pass);
+
+        if (!passwordMatch) {
+            return res.render('login', {
+                alert: true,
+                alertTitle: "Usuario o contraseña inválidos",
+                alertMessage: "",
+                alertIcon: "error",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
+
+        // Si la contraseña es correcta
+        req.session.user = usuarioEncontrado.dataValues;
+        req.session.loggedin = true;
+
+        return res.redirect('/?login=success'); 
+
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ocurrió un error en el servidor en el login');
+        return res.status(500).send('Ocurrió un error en el servidor');
     }
 };
 
-const logout = async (req, res) => {
-    if (session.loggedin) {
-        session.loggedin = false
-        delete session.usuario;
-    }
-    res.redirect('/')
+
+const logout = (req, res) => {
+    console.log("Cierre de sesión solicitado");
+
+    // Destruir la sesión
+    req.session.destroy((err) => {
+        if (err) {
+            console.error("Error al destruir la sesión:", err);
+            return res.status(500).send("No se pudo cerrar la sesión");
+        }
+
+        console.log("Cierre de sesión completado");
+        res.clearCookie('connect.sid'); 
+        res.redirect('/'); 
+    });
 };
+
+
 
 /**
  * MIDDLEWARE comprobar sesion:

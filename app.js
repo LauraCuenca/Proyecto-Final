@@ -32,7 +32,7 @@ app.set('view engine', 'ejs')
 app.use(sessionConfig);
 
 // Sincronizar el modelo con la base de datos
-sequelize.sync({ force: true }) 
+sequelize.sync({}) 
   .then(() => {
     console.log('Tablas creadas.');
   })

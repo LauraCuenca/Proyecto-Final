@@ -1,5 +1,7 @@
 const User = require('../db/models/user.js');
 const session = require('express-session');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 /**
  * Si se ingresa el nombre todo en mayuscula o de forma
@@ -13,12 +15,12 @@ function convertirNombre(nombre) {
     return palabras.join(" ");
   }
 
-function validarCampos(mail , pass , name , tel , DNI){
-    if(!mail || !pass || !name || !tel || !DNI ){
+function validarCampos(mail , pass , name){
+    if(!mail || !pass || !name ){
         console.error('Validacion invalida, campos incompletos');
         return false
     }
-    if(pass.length<8){
+    if(pass.length<4){
         console.error('Validacion invalida, contraseña muy corta');
         return false
     }
@@ -37,41 +39,74 @@ const register = async (req, res) => {
     const mail = req.body.mail.toLowerCase();
     const name = convertirNombre(req.body.name);
     const pass = req.body.pass;
+    const confirmPass = req.body.confirmPassword;
+    const hashedPassword = await bcrypt.hash(pass, saltRounds);
     let rol = req.body.rol;
 
-    if(await !validarCampos(mail , pass , name)){
-        return false
-    }
-    if (await existe_duplicado(mail)){
-        console.error('Error al crear usuario,mail duplicado');
-        return false
+    // Validar que todos los campos estén presentes
+    if (!validarCampos(mail, pass, name)) {
+        return res.render('register', {
+            alert: true,
+            alertTitle: "Error",
+            alertMessage: "Campos incompletos o inválidos",
+            alertIcon: "error",
+            showConfirmButton: false,
+            timer: 2000,
+        });
     }
 
+    // Validar que las contraseñas coincidan
+    if (pass !== confirmPass) {
+        return res.render('register', {
+            alert: true,
+            alertTitle: "Error",
+            alertMessage: "Las contraseñas no coinciden",
+            alertIcon: "error",
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+
+    // Verificar si el correo ya está registrado
+    if (await existe_duplicado(mail)) {
+        console.error('Error al crear usuario, mail duplicado');
+        return res.render('register', {
+            alert: true,
+            alertTitle: "Error",
+            alertMessage: "El correo electrónico ya está registrado",
+            alertIcon: "error",
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
+
+    // Crear el usuario en la base de datos
     User.create({
-        mail:mail,
-        name:name,
-        pass:pass,
-        rol:rol,
+        name: name,
+        mail: mail,
+        pass: hashedPassword,
+        rol: rol,
     })
     .then(user => {
-        res.render('register',{
-            alert:true,
-            alertTitle:"Registracion exitosa",
-            alertMessage:"",
-            alertIcon:"success",
-            showConfirmButton:false,
-            timer:1500,
-        })
+        res.render('register', {
+            alert: true,
+            alertTitle: "Registración exitosa",
+            alertMessage: "",
+            alertIcon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+        });
     })
     .catch(error => {
-        res.render('register',{
-            alert:true,
-            alertTitle:"Registracion fallida",
-            alertMessage:"",
-            alertIcon:"error",
-            showConfirmButton:false,
-            timer:2000,
-        })
+        console.error('Error al crear usuario:', error);
+        res.render('register', {
+            alert: true,
+            alertTitle: "Error",
+            alertMessage: "Error al registrar el usuario",
+            alertIcon: "error",
+            showConfirmButton: false,
+            timer: 2000,
+        });
     });
 }
 

@@ -17,7 +17,7 @@ User.init({
   },
   rol: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 }, {
   sequelize,
