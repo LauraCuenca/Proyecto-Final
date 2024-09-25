@@ -10,10 +10,10 @@ const session = require('express-session');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Middleware para servir archivos dinamicos
+// Middleware para servir archivos estaticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Middleware para servir archivos estáticos
+// Middleware para servir session
 app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.use(session({
   secret: 'secret',  
   resave: true,     
-  saveUninitialized: true 
+  saveUninitialized: true
 }));
 
 //proyecto de rutas

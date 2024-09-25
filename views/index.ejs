@@ -41,9 +41,19 @@
   </nav>
   
   <div class="container mt-5">
-    <h1>Bienvenido a FiLinker, Todas tus finanzas aqui</h1>
+    <h1>
+      Bienvenido a FiLinker, 
+      <% if (user) { %>
+          <%= user.name %>! 
+      <% } else { %>
+          Invitado! 
+      <% } %>
+      Todas tus finanzas aquí
+  </h1>
+  
     <p>Administra tus tareas relacionadas con tus finanzas personales aquí.</p>
-  </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
