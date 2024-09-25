@@ -1,4 +1,4 @@
-# Tienda de Componentes de Computadora
+# FiLink- Api Rest Financiera
 Este proyecto es una API REST diseñada para ayudar a los usuarios a gestionar sus finanzas de manera efectiva. 
 La API permite realizar diversas operaciones, como calcular simulaciones de inversión, implementar un sistema de ahorro, gestionando una lista de ahorros (to-do list) y consultar descuentos ofrecidos por billeteras virtuales.
 
