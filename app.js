@@ -10,6 +10,9 @@ const session = require('express-session');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Middleware para servir archivos dinamicos
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Middleware para servir archivos estáticos
 app.use((req, res, next) => {
   res.locals.session = req.session;
