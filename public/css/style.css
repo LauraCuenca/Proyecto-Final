@@ -12,7 +12,7 @@ h1 {
   margin: auto;
   padding: 20px;
   background-color: #CAD2C5;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px;
   border-radius: 8px;
   border: 1px solid black;
 }
@@ -92,16 +92,18 @@ button:hover {
   color: white;
 }
 body.dark-mode {
-  background-color: #121212;
+  background-color: #474747;
 }
 body.dark-mode .navbar {
   background-color: #2b2b2b;
 }
 body.dark-mode .btn {
-  background-color: #ffc107;
-  color: black;
+  background-color: #343a41;
+  color: white;
 }
-
+body.dark-mode .btn:hover{
+  background-color: #6c757d;
+}
 .navbar .btn {
   margin-top: 0;
   margin-bottom: 0;
@@ -161,6 +163,8 @@ button.add-amount {
 
 /* Inversiones */
 .simulator-container{
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 15px;
@@ -172,3 +176,16 @@ button.add-amount {
   text-align: center;
   margin-top: 20px;
 }
+
+/* Body */
+body.dark-mode .simulator-container{
+  border: 3px solid white;
+  background-color: #CAD2C5;
+  box-shadow: 0 0 10px rgb(163, 163, 163);
+}
+
+body.dark-mode .container {
+  border: 3px solid white;
+  box-shadow: 0 0 10px rgb(163, 163, 163);
+}
+

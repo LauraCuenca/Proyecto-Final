@@ -6,7 +6,6 @@
   <title>FiLinker - Tus Finanzas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-
 </head>
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color: #CAD2C5; box-shadow: 0 1px 1px;">
@@ -30,24 +29,59 @@
             <a class="nav-link" href="/dolarToday">Dolar Hoy</a>
           </li>
         </ul>
-        <a href="/login" class="btn btn ms-auto me-3" role="button">Iniciar Sesión</a>
+        <a href="/login" class="btn btn-secondary ms-auto me-3" role="button">Iniciar Sesión</a>
         <button id="darkModeBtn" class="btn btn-secondary ml-auto">Modo Oscuro</button>
       </div>
     </div>
 </nav>
 
-  <div class="container mt-5">
+  <div class="container mt-5 text-center">
     <h1>Bienvenido a Tus Inversiones</h1>
     <p>Podras instruirte en inversiones</p>
   </div>
 
   <div class="container mt-3">
-    <p>Descubre los secretos mejor guardados de los inversores más exitosos del mundo y aprende cómo hacer que tu dinero trabaje más duro para ti. ¿Cansado de que tus ahorros se queden estancados? ¡Es hora de tomar el control de tu futuro financiero! Te enseñaremos las estrategias y herramientas que necesitas para construir un patrimonio sólido y alcanzar tus metas. Desde la diversificación de inversiones hasta el análisis de mercado, te proporcionaremos los conocimientos necesarios para tomar decisiones inteligentes y rentables. No importa si eres un principiante o un inversor experimentado, en nuestra plataforma encontrarás todo lo que necesitas para alcanzar la libertad financiera. </p>
+    <h2 class="text-center">Aprende sobre Inversiones</h2>
+    <div class="row">
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"> <strong> ¿Qué es una Inversión? </strong></h5>
+            <p class="card-text">Una inversión es cuando pones tu dinero a trabajar para generar más ingresos. Se trata de adquirir activos con la expectativa de que aumenten de valor a lo largo del tiempo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"> <strong> Tipos de Inversiones </strong></h5>
+            <p class="card-text">Existen varios tipos de inversiones: acciones, bonos, bienes raíces, y más. Cada uno tiene su propio nivel de riesgo y rentabilidad potencial.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"> <strong> Diversificación </strong></h5>
+            <p class="card-text">La clave para reducir el riesgo es la diversificación, lo que significa distribuir tu dinero entre diferentes tipos de inversiones para evitar depender de una sola fuente.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"> <strong> Rentabilidad y Riesgos </strong></h5>
+            <p class="card-text">A mayor riesgo, mayor rentabilidad. Pero no todas las inversiones riesgosas son rentables. Aprender a gestionar el riesgo es fundamental para ser un inversor exitoso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="container mt-3">
-  <h4>!Prueba nuestro simulador de inversiones aqui¡</h2>
+  
+  <div class="container mt-3 text-center">
+  <h4>¡Prueba nuestro simulador de inversiones aqui!</h2>
   </div>
-  <div class="simulator-container" style="margin-top: 20px; margin-left: 700px; ">
+  <div class="simulator-container text-center" style="margin-top: 30px; margin-left: 700px; margin-bottom: 30px; ">
     <h2>Simulador de inversiones</h2>
     <form id="investmentForm">
         <label for="initialAmount">Inversion Inicial ($):</label>
@@ -61,11 +95,17 @@
 
         <label for="years">Años de inversion:</label>
         <input type="number" id="years" placeholder="Ej: 10" required>
-
-        <button type="submit">Calculate</button>
+        <p></p>
+        <button type="submit">Calcular</button>
+        <div class="investment-options text-center mt-3">
+          <h3>Empresas lideres</h3>
+          <p><strong>Apple: 16,43%</strong></p>
+          <p><strong>Amazon: 21,60%</strong></p>
+          <p><strong>Microsoft: 13,21%</strong></p>
+        </div>
     </form>
     <div class="result">
-        <h3>Valor de la inversion: $<span id="resultValue">0.00</span></h3>
+        <h3>Valor de tu inversion: $<span id="resultValue">0.00</span></h3>
     </div>
 </div>
 

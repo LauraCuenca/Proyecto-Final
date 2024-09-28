@@ -8,20 +8,27 @@ document.getElementById('taskForm').addEventListener('submit', function(event) {
     const startDate = new Date(document.getElementById('startDate').value);
     const endDate = new Date(document.getElementById('endDate').value);
     const today = new Date();
-const taskList = document.querySelector('.task-list');
 
+    
+    const todayStr = today.toISOString().split('T')[0];
+    const startDateStr = startDate.toISOString().split('T')[0];
+    const endDateStr = endDate.toISOString().split('T')[0];
 
-    if (startDate < today) {
+    console.log('Fecha actual (today): ', todayStr);
+    console.log('Fecha de inicio (startDate): ', startDateStr);
+    console.log('Fecha de vencimiento (endDate): ', endDateStr);
+
+    if (startDateStr < todayStr) {
         alert('La fecha de inicio no puede ser anterior a la fecha actual.');
         return;
     }
 
-    if (endDate < startDate) {
+    if (endDateStr < startDateStr) {
         alert('La fecha de vencimiento no puede ser anterior a la fecha de inicio.');
         return;
     }
 
-    addTask(taskName, startDate.toISOString().split('T')[0], endDate.toISOString().split('T')[0]);
+    addTask(taskName, startDateStr, endDateStr);
     saveTasks();
 
     document.getElementById('taskForm').reset();
@@ -90,7 +97,6 @@ function loadTasks() {
         }
     });
 }
-
 const darkModeBtn = document.getElementById('darkModeBtn');
 const body = document.body;
 
