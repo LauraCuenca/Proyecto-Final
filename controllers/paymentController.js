@@ -2,7 +2,7 @@ const Task = require('../db/models/task.js');
 const session = require('express-session');
 
 const displayPayment = (req,res) => {
-    res.render('payment')
+    res.render('payment',{ user: req.session.user || null })
 }
 const createTask = async (req, res) => {
     const date_ini = req.body.date_ini;

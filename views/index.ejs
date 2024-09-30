@@ -29,7 +29,7 @@
             <a class="nav-link" href="/dolarToday">Dolar Hoy</a>
           </li>
         </ul>
-        <% if (session && session.user) { %>
+        <% if (user) { %>
           <a href="/logout" class="btn btn-danger ms-auto" role="button">Cerrar Sesión</a>
       <% } else { %>
           <a href="/login" class="btn btn-secondary ms-auto me-3" role="button">Iniciar Sesión</a>
@@ -40,7 +40,13 @@
   </nav>
   
   <div class="container mt-5 text-center">
-    <h1>Bienvenido a FiLinker, Todas tus finanzas aqui</h1>
+    <h1>Bienvenido a FiLinker, 
+      <% if (user) { %>
+          <%= user.name %>! 
+      <% } else { %>
+          Invitado! 
+      <% } %>
+  </h1>
     <p>Administra tus tareas relacionadas con tus finanzas personales aquí.</p>
   </div>
   <div class="container my-5">

@@ -7,7 +7,7 @@ const displayLogin = (req, res) => {
         res.send("ya tiene una sesion iniciada")
         return
     }
-    res.render('login')
+    res.render('login',{ user: req.session.user || null })
 }
 
 const validateLogin = async (req, res) => {
@@ -85,7 +85,7 @@ const comprobar_sesion = (req, res, next) => {
     if (session.loggedin) {
         next();
     } else {
-        res.redirect('/login');
+        res.redirect('/login',{ user: req.session.user || null });
     }
 };
 

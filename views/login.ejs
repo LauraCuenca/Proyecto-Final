@@ -29,7 +29,11 @@
             <a class="nav-link" href="/dolarToday">Dolar Hoy</a>
           </li>
         </ul>
-        <a href="/login" class="btn btn ms-auto me-3" role="button">Iniciar Sesión</a>
+        <% if (user) { %>
+          <a href="/logout" class="btn btn-danger ms-auto" role="button">Cerrar Sesión</a>
+      <% } else { %>
+          <a href="/login" class="btn btn-secondary ms-auto me-3" role="button">Iniciar Sesión</a>
+      <% } %>
         <button id="darkModeBtn" class="btn btn-secondary ml-auto">Modo Oscuro</button>
       </div>
     </div>

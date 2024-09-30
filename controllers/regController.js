@@ -29,7 +29,7 @@ function validarCampos(mail , pass , name){
 }
 
 const displayRegister = (req,res) =>{
-    res.render('register',{ session })
+    res.render('register',{ user: req.session.user || null })
 }
 
 /**

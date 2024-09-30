@@ -29,10 +29,10 @@
             <a class="nav-link" href="/dolarToday">Dolar Hoy</a>
           </li>
         </ul>
-        <% if (session && session.user) { %>
+        <% if (user) { %>
           <a href="/logout" class="btn btn-danger ms-auto" role="button">Cerrar Sesión</a>
       <% } else { %>
-          <a href="/login" class="btn btn-primary ms-auto me-3" role="button">Iniciar Sesión</a>
+          <a href="/login" class="btn btn-secondary ms-auto me-3" role="button">Iniciar Sesión</a>
       <% } %>
       </div>
       <button id="darkModeBtn" class="btn btn-secondary ml-auto">Modo Oscuro</button>
