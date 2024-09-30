@@ -30,7 +30,9 @@
           </li>
         </ul>
         <% if (user) { %>
-          <a href="/logout" class="btn btn-danger ms-auto" role="button">Cerrar Sesión</a>
+          <form id="logout-form" action="/logout" method="POST">
+            <button type="submit" class="btn btn-outline-dark me-2">Cerrar sesión</button>
+            </form>
       <% } else { %>
           <a href="/login" class="btn btn-secondary ms-auto me-3" role="button">Iniciar Sesión</a>
       <% } %>
