@@ -7,6 +7,7 @@ const { displayPayment } = require('../controllers/paymentController');
 const { displaySaving } = require('../controllers/savingController');
 const { displayDolar } = require('../controllers/dolarController');
 const { displayInvest } = require('../controllers/investController');
+const { displayProm } = require('../controllers/promController');
 
 // Rutas 
 app.get('/', displayIndex)
@@ -24,6 +25,7 @@ app.get('/payment', displayPayment)
 app.get('/saving', displaySaving)
 app.get('/dolarToday', displayDolar)
 app.get('/invest', displayInvest)
+app.get('/prom', displayProm)
 
 
 module.exports = app;
