@@ -50,6 +50,26 @@ button:hover {
   background-color: #617283;
 }
 
+.btn-custom {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #343a41;
+  color: white; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.3s; 
+}
+
+.btn-custom:focus {
+  outline: none; 
+}
+
+.btn-custom:hover {
+  background-color: #617283; 
+}
+
+
 .task-list {
   list-style: none;
   padding: 0;
