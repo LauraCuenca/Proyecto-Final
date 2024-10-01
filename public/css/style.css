@@ -197,6 +197,31 @@ button.add-amount {
   margin-top: 20px;
 }
 
+/* Promociones */
+.promocontainer{
+  width: 80%;
+  margin:auto;
+  margin-top: 80px;
+}
+
+.promocontainer img{
+  width: 40%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.promocontainer ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.promocontainer li{
+  border-bottom: 1px solid black;
+  padding-left: 20px;
+}
+
+
 /* Body */
 body.dark-mode .simulator-container{
   border: 3px solid white;

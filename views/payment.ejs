@@ -73,8 +73,11 @@
           <strong>Descripción:</strong> <%= tarea.descrip %><br>
           <strong>Fecha de Inicio:</strong> <%= tarea.date_ini %><br>
           <strong>Fecha de Fin:</strong> <%= tarea.date_end %>
+          <form action="/deleteTask/<%= tarea.id %>" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
         </li>
-        <hr> <!-- Línea separadora entre tareas -->
+        <hr> 
       <% }); %>
     <% } else { %>
       <li>No hay lista de Pagos por el momento.</li>
