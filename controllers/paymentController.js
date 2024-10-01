@@ -2,16 +2,27 @@ const Task = require('../db/models/task.js');
 const User = require('../db/models/user');
 const session = require('express-session');
 
+// Dentro de tu controlador
 const displayPayment = async (req, res) => {
   try {
-    // Obtiene todas las tareas de la base de datos
     const data = await Task.findAll();
+    
+    console.log('Datos obtenidos de la base de datos:', data);
+    
     const tareasOrdenadas = data.sort((a, b) => a.date_ini - b.date_ini);
-   
-    // Renderiza la vista con los datos
+    
+    // Formatea las fechas antes de enviarlas a la vista
+    const tareasFormateadas = tareasOrdenadas.map(tarea => {
+      return {
+        ...tarea.dataValues,
+        date_ini: new Date(tarea.date_ini).toLocaleDateString(), // Formatea la fecha de inicio
+        date_end: new Date(tarea.date_end).toLocaleDateString()  // Formatea la fecha de fin
+      };
+    });
+
     res.render('payment', { 
       user: req.session.user || null, 
-      tareas: tareasOrdenadas 
+      tareas: tareasFormateadas 
     });
   } catch (error) {
     console.error('Error al cargar las tareas:', error);

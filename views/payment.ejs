@@ -69,15 +69,19 @@
   <ul>
     <% if (tareas.length > 0) { %>
       <% tareas.forEach(tarea => { %>
-        <li><%= tarea.descrip %></li> 
-        <li><%= tarea.date_ini %></li> 
-        <li><%= tarea.date_end %></li> 
+        <li>
+          <strong>Descripción:</strong> <%= tarea.descrip %><br>
+          <strong>Fecha de Inicio:</strong> <%= tarea.date_ini %><br>
+          <strong>Fecha de Fin:</strong> <%= tarea.date_end %>
+        </li>
+        <hr> <!-- Línea separadora entre tareas -->
       <% }); %>
     <% } else { %>
       <li>No hay lista de Pagos por el momento.</li>
     <% } %>
   </ul>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
