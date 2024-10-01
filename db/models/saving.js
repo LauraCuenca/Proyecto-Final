@@ -21,7 +21,7 @@ Saving.init({
   },
 }, {
   sequelize,
-  modelName: '',
+  modelName: 'Saving',
   tableName: 'saving',
   timestamps: false,
 });
