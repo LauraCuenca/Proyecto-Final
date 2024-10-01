@@ -69,7 +69,9 @@
   <ul>
     <% if (tareas.length > 0) { %>
       <% tareas.forEach(tarea => { %>
-        <li><%= tarea.name %></li> 
+        <li><%= tarea.descrip %></li> 
+        <li><%= tarea.date_ini %></li> 
+        <li><%= tarea.date_end %></li> 
       <% }); %>
     <% } else { %>
       <li>No hay lista de Pagos por el momento.</li>

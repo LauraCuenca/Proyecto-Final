@@ -23,27 +23,13 @@ const validateLogin = async (req, res) => {
         const usuarioEncontrado = await User.findOne({ where: { mail: mail } });
 
         if (!usuarioEncontrado) {
-            return res.render('login', {
-                alert: true,
-                alertTitle: "Usuario o contraseña inválidos",
-                alertMessage: "",
-                alertIcon: "error",
-                showConfirmButton: false,
-                timer: 1500,
-            });
+            return res.render('login');
         }
 
         const passwordMatch = await bcrypt.compare(pass, usuarioEncontrado.pass);
 
         if (!passwordMatch) {
-            return res.render('login', {
-                alert: true,
-                alertTitle: "Usuario o contraseña inválidos",
-                alertMessage: "",
-                alertIcon: "error",
-                showConfirmButton: false,
-                timer: 1500,
-            });
+            return res.render('login');
         }
 
         // Si la contraseña es correcta

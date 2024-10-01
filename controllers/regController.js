@@ -45,39 +45,18 @@ const register = async (req, res) => {
 
     // Validar que todos los campos estén presentes
     if (!validarCampos(mail, pass, name)) {
-        return res.render('register', {
-            alert: true,
-            alertTitle: "Error",
-            alertMessage: "Campos incompletos o inválidos",
-            alertIcon: "error",
-            showConfirmButton: false,
-            timer: 2000,
-        });
+        return res.render('register');
     }
 
     // Validar que las contraseñas coincidan
     if (pass !== confirmPass) {
-        return res.render('register', {
-            alert: true,
-            alertTitle: "Error",
-            alertMessage: "Las contraseñas no coinciden",
-            alertIcon: "error",
-            showConfirmButton: false,
-            timer: 2000,
-        });
+        return res.render('register');
     }
 
     // Verificar si el correo ya está registrado
     if (await existe_duplicado(mail)) {
         console.error('Error al crear usuario, mail duplicado');
-        return res.render('register', {
-            alert: true,
-            alertTitle: "Error",
-            alertMessage: "El correo electrónico ya está registrado",
-            alertIcon: "error",
-            showConfirmButton: false,
-            timer: 2000,
-        });
+        return res.render('register');
     }
 
     // Crear el usuario en la base de datos
@@ -88,25 +67,11 @@ const register = async (req, res) => {
         rol: rol,
     })
     .then(user => {
-        res.render('register', {
-            alert: true,
-            alertTitle: "Registración exitosa",
-            alertMessage: "",
-            alertIcon: "success",
-            showConfirmButton: false,
-            timer: 1500,
-        });
+        res.render('register');
     })
     .catch(error => {
         console.error('Error al crear usuario:', error);
-        res.render('register', {
-            alert: true,
-            alertTitle: "Error",
-            alertMessage: "Error al registrar el usuario",
-            alertIcon: "error",
-            showConfirmButton: false,
-            timer: 2000,
-        });
+        res.render('register');
     });
 }
 

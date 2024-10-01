@@ -3,19 +3,22 @@ const User = require('../db/models/user');
 const session = require('express-session');
 
 const displayPayment = async (req, res) => {
-    try {
-      // Obtiene todas las tareas de la base de datos
-      const data = await Task.findAll();
-      const tareasOrdenadas = data.sort((a, b) => a.date_ini - b.date_ini);
-      res.render('payment', { 
-        user: req.session.user || null, 
-        tareas: tareasOrdenadas 
-      });
-    } catch (error) {
-      console.error('Error al cargar las tareas:', error);
-      res.send('Hubo un error al cargar las tareas.');
-    }
-  };
+  try {
+    // Obtiene todas las tareas de la base de datos
+    const data = await Task.findAll();
+    const tareasOrdenadas = data.sort((a, b) => a.date_ini - b.date_ini);
+   
+    // Renderiza la vista con los datos
+    res.render('payment', { 
+      user: req.session.user || null, 
+      tareas: tareasOrdenadas 
+    });
+  } catch (error) {
+    console.error('Error al cargar las tareas:', error);
+    res.send('Hubo un error al cargar las tareas.');
+  }
+};
+
   
 
   const cambiarTarea = async (req, res) => {
