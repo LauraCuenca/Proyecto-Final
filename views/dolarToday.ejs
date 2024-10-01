@@ -34,14 +34,14 @@
             <a class="nav-link" href="/dolarToday">Dolar Hoy</a>
           </li>
         </ul>
-        <div class="d-flex justify-content-end">
-        <% if (user) { %>
-          <button id="logoutBtn" class="btn-custom ms-auto me-3">Cerrar sesión</button>
-        <% } else { %>
-          <a href="/login" class="btn btn-secondary ms-auto me-3" role="button">Iniciar Sesión</a>
-        <% } %>
-      <button id="darkModeBtn" class="btn btn-secondary ml-auto">Modo Oscuro</button>
-       </div>
+        <div class="d-flex justify-content-end ms-auto">
+          <% if (user) { %>
+            <button id="logoutBtn" class="btn-custom me-3">Cerrar sesión</button>
+          <% } else { %>
+            <a href="/login" class="btn btn-secondary me-3" role="button">Iniciar Sesión</a>
+          <% } %>
+        <button id="darkModeBtn" class="btn btn-secondary">Modo Oscuro</button>
+        </div>
       </div> 
     </div>
   </nav>

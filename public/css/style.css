@@ -48,7 +48,8 @@ button {
 
 button:hover {
   background-color: #617283;
-}
+  color: black;
+} 
 
 .btn-custom {
   margin-top: 10px;
@@ -65,10 +66,10 @@ button:hover {
   outline: none; 
 }
 
-.btn-custom:hover {
-  background-color: #617283; 
+.btn:hover{
+  background-color: #617283;
+  color: black;
 }
-
 
 .task-list {
   list-style: none;
