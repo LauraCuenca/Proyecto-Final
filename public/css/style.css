@@ -130,7 +130,16 @@ body.dark-mode .btn:hover{
   margin-bottom: 0;
 }
 
-/* AHORRO */
+/* index */
+.custom-card{
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover{
+  transform: scale(1.07);
+}
+
+/* Ahorro */
 
 .goal-item {
   margin-bottom: 20px;
@@ -196,6 +205,11 @@ button.add-amount {
 .result{
   text-align: center;
   margin-top: 20px;
+}
+
+.card-body:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Promociones */

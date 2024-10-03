@@ -55,23 +55,23 @@
     <div class="row">
       <div class="col-md-6 col-lg-3 mb-4">
         <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title"> <strong> ¿Qué es una Inversión? </strong></h5>
+          <div class="card-body text-center">
+            <h5 class="card-title"> <strong> ¿Qué es? </strong></h5>
             <p class="card-text">Una inversión es cuando pones tu dinero a trabajar para generar más ingresos. Se trata de adquirir activos con la expectativa de que aumenten de valor a lo largo del tiempo.</p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 mb-4">
         <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title"> <strong> Tipos de Inversiones </strong></h5>
+          <div class="card-body text-center">
+            <h5 class="card-title"> <strong> Tipos de </strong></h5>
             <p class="card-text">Existen varios tipos de inversiones: acciones, bonos, bienes raíces, y más. Cada uno tiene su propio nivel de riesgo y rentabilidad potencial.</p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 mb-4">
         <div class="card h-100">
-          <div class="card-body">
+          <div class="card-body text-center">
             <h5 class="card-title"> <strong> Diversificación </strong></h5>
             <p class="card-text">La clave para reducir el riesgo es la diversificación, lo que significa distribuir tu dinero entre diferentes tipos de inversiones para evitar depender de una sola fuente.</p>
           </div>
@@ -79,7 +79,7 @@
       </div>
       <div class="col-md-6 col-lg-3 mb-4">
         <div class="card h-100">
-          <div class="card-body">
+          <div class="card-body text-center">
             <h5 class="card-title"> <strong> Rentabilidad y Riesgos </strong></h5>
             <p class="card-text">A mayor riesgo, mayor rentabilidad. Pero no todas las inversiones riesgosas son rentables. Aprender a gestionar el riesgo es fundamental para ser un inversor exitoso.</p>
           </div>
@@ -91,7 +91,7 @@
   <div class="container mt-3 text-center">
   <h4>¡Prueba nuestro simulador de inversiones aqui!</h2>
   </div>
-  <div class="simulator-container text-center" style="margin-top: 30px; margin-left: 700px; margin-bottom: 30px; ">
+  <div class="simulator-container text-center" style="margin-top: 30px; margin-left: 750px; margin-bottom: 30px; ">
     <h2>Simulador de inversiones</h2>
     <form id="investmentForm">
         <label for="initialAmount">Inversion Inicial ($):</label>
@@ -105,17 +105,19 @@
 
         <label for="years">Años de inversion:</label>
         <input type="number" id="years" placeholder="Ej: 10" required>
-        <p></p>
+        <label for="companySelect">Empresas de ejemplo:</label>
+        <select id="companySelect">
+          <option value="38">Google</option>
+          <option value="16">Apple</option>
+          <option value="21">Amazon</option>
+          <option value="13">Microsoft</option>
+          <option value="25">MercadoLibre</option>
+          <option value="">Otro</option>
+        </select>
         <button type="submit">Calcular</button>
-        <div class="investment-options text-center mt-3">
-          <h3>Empresas lideres</h3>
-          <p><strong>Apple: 16,43%</strong></p>
-          <p><strong>Amazon: 21,60%</strong></p>
-          <p><strong>Microsoft: 13,21%</strong></p>
-        </div>
     </form>
     <div class="result">
-        <h3>Valor de tu inversion: $<span id="resultValue">0.00</span></h3>
+        <h3>Ganancias de tu inversion: $<span id="resultValue">0.00</span></h3>
     </div>
 </div>
 
@@ -140,6 +142,22 @@
 });
 
   </script>
+
+<script>
+const interestRateInput = document.getElementById("interestRate");
+const companySelect = document.getElementById("companySelect");
+
+companySelect.addEventListener("change", function() {
+    const selectedValue = companySelect.value;
+    if (selectedValue) {
+        interestRateInput.value = selectedValue;
+    } else {
+        interestRateInput.value = "";
+    }
+});
+
+</script>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
         const darkModeBtn = document.getElementById('darkModeBtn');
