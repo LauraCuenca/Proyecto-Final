@@ -141,6 +141,12 @@ body.dark-mode .btn:hover{
 
 /* Ahorro */
 
+#goalList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .goal-item {
   margin-bottom: 20px;
   padding: 15px;

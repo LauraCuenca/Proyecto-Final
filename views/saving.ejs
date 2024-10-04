@@ -49,14 +49,14 @@
   <h1 class="text-center">Mis Metas de Ahorro</h1>
 
   <form id="goalForm" action="/addSaving" method="POST">
-    <label for="goalName">Objetivo de tu ahorro:</label>
-    <input type="text" id="goalName" name="goalName" required>
+    <label for="goalName">Descripcion de tu objetivo:</label>
+    <input type="text" id="goalName" placeholder="Ej: Mi primer auto" name="goalName" required>
     
-    <label for="goalAmount">Monto Objetivo:</label>
-    <input type="number" id="goalAmount" name="goalAmount" required>
+    <label for="goalAmount">Valor de tu objetivo ($):</label>
+    <input type="number" id="goalAmount" placeholder="Ej: $1.000.000" name="goalAmount" required>
     
-    <label for="savedAmount">Monto Ahorrado:</label>
-    <input type="number" id="savedAmount" name="savedAmount" required>
+    <label for="savedAmount">Monto Inicial Ahorrado ($):</label>
+    <input type="number" id="savedAmount" placeholder="Ej: 100.000" name="savedAmount" required>
     
     <label for="color">Asigna un color a tu ahorro:</label>
     <select id="color" name="color" required>
@@ -67,7 +67,7 @@
       <option value="#6c4e31">Marron</option>
     </select>
     
-    <button type="submit">Agregar Ahorro</button>
+    <button type="submit">Establecer Objetivo</button>
 </form>
   <ul id="goalList"></ul>
 </div>
@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
       <div class="progress-text">${percentage}%</div>
       <button class="add-amount">Agregar Ahorro</button>
-      <button class="edit">Editar</button>
-      <button class="delete">Eliminar</button>
+      <button class="edit">Editar Ahorro</button>
+      <button class="delete">Eliminar Ahorro</button>
     `;
 
     goalList.appendChild(goalItem);
