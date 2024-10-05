@@ -28,14 +28,15 @@ function validarCampos(mail , pass , name){
     return true
 }
 
-const displayRegister = (req,res) =>{
-    res.render('register')
-}
+const displayRegister = (req, res) => {
+    const user = req.user || null; 
+    res.render('register', { user }); 
+};
 
 /**
  * Hace todas las validaciones del Back-End y se crea el user en la BD
  */
-const register = async (req, res) => {    
+const register = async (req, res) => {
     const mail = req.body.mail.toLowerCase();
     const name = convertirNombre(req.body.name);
     const pass = req.body.pass;
@@ -45,18 +46,18 @@ const register = async (req, res) => {
 
     // Validar que todos los campos estén presentes
     if (!validarCampos(mail, pass, name)) {
-        return res.render('register');
+        return res.render('register', { user: null });
     }
 
     // Validar que las contraseñas coincidan
     if (pass !== confirmPass) {
-        return res.render('register');
+        return res.render('register', { user: null });
     }
 
     // Verificar si el correo ya está registrado
     if (await existe_duplicado(mail)) {
         console.error('Error al crear usuario, mail duplicado');
-        return res.render('register');
+        return res.render('register', { user: null });
     }
 
     // Crear el usuario en la base de datos
@@ -67,13 +68,14 @@ const register = async (req, res) => {
         rol: rol,
     })
     .then(user => {
-        res.render('register');
+        res.redirect('/');
     })
     .catch(error => {
         console.error('Error al crear usuario:', error);
-        res.render('register');
+        res.render('register', { user: null });
     });
 }
+
 
 /**
  * Devuelve true si ya existe un usuario con ese mail
