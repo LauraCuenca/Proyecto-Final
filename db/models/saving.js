@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../db');
+const User = require('./user'); 
 
 class Saving extends Model { }
 Saving.init({
@@ -15,15 +16,21 @@ Saving.init({
     type: DataTypes.FLOAT,
     allowNull: false,
   },
-  color: {
-    type: DataTypes.STRING, 
-    allowNull: false, 
-  },
+  UserId: { 
+    type: DataTypes.INTEGER,
+    references: {
+        model: User, 
+        key: 'id', 
+    }
+}
 }, {
   sequelize,
   modelName: 'Saving',
   tableName: 'saving',
   timestamps: false,
 });
+
+User.hasMany(Saving, { foreignKey: 'UserId' }); 
+Saving.belongsTo(User, { foreignKey: 'UserId' }); 
 
 module.exports = Saving;

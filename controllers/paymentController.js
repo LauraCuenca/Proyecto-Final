@@ -1,8 +1,5 @@
 const Task = require('../db/models/task.js'); 
-const User = require('../db/models/user');
-const session = require('express-session');
 
-// Dentro de tu controlador
 const displayPayment = async (req, res) => {
   try {
     const data = await Task.findAll();
@@ -27,17 +24,14 @@ const displayPayment = async (req, res) => {
   }
 };
 
- const createTask = async (req, res) => {
+
+const createTask = async (req, res) => {
     const { date_ini, date_end, descrip, userId } = req.body;
 
-    // Verifica que req.body esté recibiendo los datos correctamente
-    console.log('Datos recibidos en req.body:', { date_ini, date_end, descrip , userId });
-
-    // Validar que todos los campos estén presentes
     if (!date_ini || !date_end || !descrip || !userId) {
         console.log('Faltan datos en el formulario o en la sesión');
     }
-    // Crear la tarea y asociarla con el usuario
+
     try {
         const newTask = await Task.create({
             date_ini,
@@ -45,8 +39,6 @@ const displayPayment = async (req, res) => {
             descrip,
             UserId: userId  
         });
-
-        console.log('Tarea creada con éxito:', newTask);
 
         res.redirect('/payment');
     } catch (error) {

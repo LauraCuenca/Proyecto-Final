@@ -131,12 +131,12 @@ function deleteTask(taskId) {
               'Content-Type': 'application/json'
           }
       })
-      .then(response => response.json())  // Asegúrate de convertir la respuesta a JSON
+      .then(response => response.json())  
       .then(data => {
           if (data.success) {
-              // Aquí puedes agregar código para actualizar la UI, como eliminar la tarea de la lista
+              
               console.log("Tarea eliminada exitosamente.");
-              location.reload(); // Recargar la página si es necesario
+              location.reload(); 
           } else {
               console.error("Error al eliminar la tarea.");
           }
