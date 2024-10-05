@@ -58,7 +58,7 @@ const displayPayment = async (req, res) => {
 
 const deleteTask = async (req, res) => {
     const tareaId = req.params.id; 
-    const usuarioId = req.session.usuario.id; 
+    const usuarioId = req.session.user ? req.session.user.id : null;
 
     // Verificar si el usuario es el dueño de la tarea
     const tarea = await Task.findOne({

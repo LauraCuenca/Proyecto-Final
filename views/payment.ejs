@@ -75,9 +75,7 @@
           <strong>Descripción:</strong> <%= tarea.descrip %><br>
           <strong>Fecha de Inicio:</strong> <%= tarea.date_ini %><br>
           <strong>Fecha de Fin:</strong> <%= tarea.date_end %>
-          <form action="/deleteTask/<%= tarea.id %>" method="POST" style="display: inline;">
-            <button type="submit" class="btn btn-danger">Eliminar</button>
-          </form>
+          <button type="button" class="btn btn-danger" onclick="deleteTask('<%= tarea.id %>')">Eliminar</button>
         </li>
         <hr> 
       <% }); %>
@@ -87,10 +85,66 @@
   </ul>
 </div>
 
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    const body = document.body;
+
+    darkModeBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      darkModeBtn.textContent = body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
+    });
+
+    // Manejo del botón de cerrar sesión
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        fetch('/logout', {
+          method: 'POST',
+          credentials: 'include' 
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/'; 
+          } else {
+            console.error('Error al cerrar sesión');
+          }
+        })
+        .catch(error => console.error('Error:', error));
+      });
+    }
+  });
+</script>
+<script>
+function deleteTask(taskId) {
+  const confirmed = confirm("¿Estás seguro de que deseas eliminar esta tarea?");
+  if (confirmed) {
+      // Realiza una solicitud POST para eliminar la tarea
+      fetch(`/deleteTask/${taskId}`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      })
+      .then(response => response.json())  // Asegúrate de convertir la respuesta a JSON
+      .then(data => {
+          if (data.success) {
+              // Aquí puedes agregar código para actualizar la UI, como eliminar la tarea de la lista
+              console.log("Tarea eliminada exitosamente.");
+              location.reload(); // Recargar la página si es necesario
+          } else {
+              console.error("Error al eliminar la tarea.");
+          }
+      })
+      .catch(error => console.error("Error en la solicitud:", error));
+  }
+}
+</script>
+
 </body>
 </html>

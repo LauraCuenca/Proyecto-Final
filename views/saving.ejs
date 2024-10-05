@@ -71,93 +71,43 @@
 </form>
   <ul id="goalList"></ul>
 </div>
-  
-  <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('goalForm');
-  const goalList = document.getElementById('goalList');
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const goalName = document.getElementById('goalName').value;
-    const goalAmount = parseFloat(document.getElementById('goalAmount').value);
-    const savedAmount = parseFloat(document.getElementById('savedAmount').value);
-    const color = document.getElementById('color').value;
-
-    addGoal(goalName, goalAmount, savedAmount, color);
-    form.reset();
-  });
-
-  function addGoal(name, totalAmount, currentAmount, color) {
-    const goalItem = document.createElement('li');
-    goalItem.classList.add('goal-item');
-
-    const percentage = Math.min((currentAmount / totalAmount) * 100, 100).toFixed(2);
-
-    goalItem.innerHTML = `
-      <h3>${name}</h3>
-      <p>Meta: $${totalAmount.toFixed(2)} - Ahorrado: $<span class="saved-amount">${currentAmount.toFixed(2)}</span></p>
-      <div class="progress-bar">
-      <div class="progress" style="width: ${percentage}%; background-color: ${color};"></div>
-      </div>
-      <div class="progress-text">${percentage}%</div>
-      <button class="add-amount">Agregar Ahorro</button>
-      <button class="edit">Editar Ahorro</button>
-      <button class="delete">Eliminar Ahorro</button>
-    `;
-
-    goalList.appendChild(goalItem);
-
-    const addAmountButton = goalItem.querySelector('.add-amount');
-    const editButton = goalItem.querySelector('.edit');
-    const deleteButton = goalItem.querySelector('.delete');
-
-    addAmountButton.addEventListener('click', function () {
-      const additionalAmount = parseFloat(prompt('¿Cuánto dinero deseas agregar a tu ahorro?'));
-      if (!isNaN(additionalAmount) && additionalAmount > 0) {
-        currentAmount += additionalAmount;
-        updateGoal(goalItem, currentAmount, totalAmount, color);
-      }
-    });
-
-    editButton.addEventListener('click', function () {
-      const newName = prompt('Editar nombre de la meta:', name);
-      if (newName) {
-        name = newName;
-        goalItem.querySelector('h3').textContent = name;
-      }
-    });
-
-    deleteButton.addEventListener('click', function () {
-      goalItem.remove();
-    });
-  }
-
-  function updateGoal(goalItem, currentAmount, totalAmount, color) {
-    const percentage = Math.min((currentAmount / totalAmount) * 100, 100).toFixed(2);
-
-    goalItem.querySelector('.saved-amount').textContent = currentAmount.toFixed(2);
-    goalItem.querySelector('.progress').style.width = `${percentage}%`;
-    goalItem.querySelector('.progress-text').textContent = `${percentage}%`;
-  }
-});
-</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-      const darkModeBtn = document.getElementById('darkModeBtn');
-      const body = document.body;
-  
-      darkModeBtn.addEventListener('click', () => {
-          body.classList.toggle('dark-mode');
-          darkModeBtn.textContent = body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    const body = document.body;
+
+    darkModeBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      darkModeBtn.textContent = body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
+    });
+
+    // Manejo del botón de cerrar sesión
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        fetch('/logout', {
+          method: 'POST',
+          credentials: 'include' 
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/'; 
+          } else {
+            console.error('Error al cerrar sesión');
+          }
+        })
+        .catch(error => console.error('Error:', error));
       });
+    }
   });
-  </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/script.js"></script>
+</script>
+
+
 </body>
 </html>

@@ -15,7 +15,6 @@ function renderpromos(promos) {
     promos.map((item) => {
         promosref.innerHTML += `
         <div class="promocontainer">
-            <h2>${item.name}</h2>
             <img src="${item.img}" alt="Imagen de ${item.name}">
             <ul>
                 ${item.promociones.map((promoItem, index) => {
