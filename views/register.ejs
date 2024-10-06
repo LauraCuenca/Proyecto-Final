@@ -46,23 +46,28 @@
     </div>
   </nav>
   
-  <main class="container mt-5" style="max-width: 1000px;">
+  <main class="container mt-5 text-center" style="max-width: 1000px;">
     <h1>Registrarse</h1>
-    <form action="/register" method="post">
-      <label for="username">Nombre de Usuario:</label>
-      <input type="text" id="username" name="name" required>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="mail" required>
-      
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="pass" required>
-      
-      <label for="confirmPassword">Confirmar Contraseña:</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" required>
-      
+    <form id="registerForm" action="/register" method="post">
+      <div class="mb-3">
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" id="username" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="mail" required>
+      </div>
+      <div class="mb-3">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="pass" required>
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword">Confirmar Contraseña:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      </div>
       <button type="submit">Registrarse</button>
     </form>
+    
   </main>
   
   <script>
