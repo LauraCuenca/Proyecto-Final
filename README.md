@@ -6,11 +6,11 @@ La API permite realizar diversas operaciones, como calcular simulaciones de inve
 
 
 ## Características
-Interfaz Amigable: Diseño moderno y fácil de usar. <br>
-Integración con API: Capacidad para chequear el valor del dolar en el dia actual.<br>
-Modo Claro/Oscuro: Alterna entre modos de visualización para mayor comodidad. <br>
-Registro de Usuarios: Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
-Inicio de Sesión Seguro: Autenticación protegida con contraseñas encriptadas para mantener la seguridad de la cuenta.<br>
+- Interfaz Amigable: Diseño moderno y fácil de usar. <br>
+- Integración con API: Capacidad para chequear el valor del dolar en el dia actual.<br>
+- Modo Claro/Oscuro: Alterna entre modos de visualización para mayor comodidad. <br>
+- Registro de Usuarios: Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
+- Inicio de Sesión Seguro: Autenticación protegida con contraseñas encriptadas para mantener la seguridad de la cuenta.<br>
 
 ## Tecnologías Utilizadas
 - Node.js
