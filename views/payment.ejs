@@ -86,7 +86,7 @@
   </ul>
 
   <div id="editFormContainer" style="display: none;">
-    <h3>Editar Tarea</h3>
+    <h3>Editar Pago</h3>
     <form id="editTaskForm" method="post">
       <input type="hidden" id="taskId" name="id">
       <div class="form-group">
@@ -183,7 +183,7 @@ function deleteTask(taskId) {
 
 async function editTask() {
     const taskId = document.getElementById('taskId').value; 
-    console.log("Task ID:", taskId); // Verifica el taskId
+    console.log("Task ID:", taskId);
     const descripcion = document.getElementById('editDescription').value;
     const fechaInicio = document.getElementById('editDateIni').value; 
     const fechaFin = document.getElementById('editDateEnd').value; 

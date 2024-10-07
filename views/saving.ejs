@@ -73,6 +73,7 @@
                   <strong>Nombre:</strong> <%= saving.name %><br>
                   <strong>Monto Objetivo:</strong> <%= saving.monto_obj %><br>
                   <strong>Monto Ahorrado:</strong> <%= saving.monto_ah %><br>
+                  <button type="button" class="btn btn-warning" onclick="mostrarFormularioEdicion('<%= saving.id %>', '<%= saving.name %>', '<%= saving.monto_obj %>', '<%= saving.monto_ah %>' )">Editar Info</button>
                   <button type="button" class="btn btn-danger" onclick="deleteSaving('<%= saving.id %>')">Eliminar</button>
               </li>
               <hr>
@@ -81,6 +82,30 @@
           <li>No hay ahorros por el momento.</li>
       <% } %>
   </ul>
+
+  <div id="editFormContainer" style="display: none;">
+    <h3>Editar Ahorro</h3>
+    <form id="editTaskForm" method="post">
+      <input type="hidden" id="savingId" name="id">
+      
+      <div class="form-group">
+        <label for="editName">Nombre</label>
+        <input type="text" id="editName" name="name" class="form-control" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="editMontoObj">Monto Objetivo</label>
+        <input type="number" id="editMontoObj" name="monto_obj" class="form-control" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="editMontoAh">Monto Ahorrado</label>
+        <input type="number" id="editMontoAh" name="monto_ah" class="form-control" required>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" onclick="editSaving()">Guardar Cambios</button>
+    </form>
+  </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -142,7 +167,55 @@
           .catch(error => console.error("Error en la solicitud:", error));
       }
   }
-  </script>  
+  </script>
+<script>
+function mostrarFormularioEdicion(id, name, montoObj, montoAh) {
+    // Mostrar el formulario de edición
+    document.getElementById('editFormContainer').style.display = 'block';
+
+    const savingId = id;
+    console.log(savingId);
+    document.getElementById('savingId').value = savingId;
+    document.getElementById('editName').value = name; 
+    document.getElementById('editMontoObj').value = montoObj; 
+    document.getElementById('editMontoAh').value = montoAh; 
+}
+
+async function editSaving() {
+    const savingId = document.getElementById('savingId').value; 
+    console.log("Saving ID:", savingId); 
+    const nombre = document.getElementById('editName').value;
+    const montoObjetivo = document.getElementById('editMontoObj').value;
+    const montoAhorrado = document.getElementById('editMontoAh').value;
+
+    try {
+        const response = await fetch(`/editSaving/${savingId}`, {
+            method: 'POST',
+            body: JSON.stringify({
+                id: savingId,
+                name: nombre, 
+                monto_obj: montoObjetivo, 
+                monto_ah: montoAhorrado 
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            alert('Ahorro actualizado exitosamente.');
+            location.href = location.href; 
+        } else {
+            const errorText = await response.text(); 
+            console.error('Error en la respuesta:', errorText); 
+            alert('Error al actualizar el ahorro: ' + errorText);
+        }
+    } catch (error) {
+        console.error('Error al realizar la solicitud:', error);
+        alert('Hubo un error al procesar la solicitud.');
+    }
+}
+</script>
 
 </body>
 </html>

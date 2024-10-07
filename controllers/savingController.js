@@ -39,6 +39,35 @@ const addSaving = async (req,res) => {
     }
 };
 
+const editSaving = async (req, res) => {
+    const savingId = req.body.id;
+    const usuarioId = req.session.user ? req.session.user.id : null;
+    const { name, monto_obj, monto_ah } = req.body;
+  
+    try {
+        const saving = await Saving.findOne({
+            where: {
+                id: savingId,
+                userId: usuarioId 
+            }
+        });
+  
+        if (saving) {
+            await Saving.update(
+                { name, monto_obj, monto_ah },
+                { where: { id: savingId } } 
+            );
+            
+            res.json({ success: true }); 
+        } else {
+            res.status(404).send('Saving no encontrado.');
+        }
+    } catch (error) {
+        console.error('Error al editar el saving:', error);
+        res.status(500).send('Hubo un error al editar el saving.');
+    }
+  };
+
 const deleteSaving = async (req, res) => {
     const savingId = req.params.id; 
     const userId = req.session.user ? req.session.user.id : null;
@@ -72,5 +101,6 @@ const deleteSaving = async (req, res) => {
 module.exports = {
     displaySaving,
     addSaving,
+    editSaving,
     deleteSaving
 }

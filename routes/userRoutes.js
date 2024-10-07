@@ -4,7 +4,7 @@ const { displayIndex } = require('../controllers/indexController');
 const { displayLogin, validateLogin, logout } = require('../controllers/loginController');
 const { displayRegister, register, checkMail } = require('../controllers/regController');
 const { displayPayment, createTask, editTask, deleteTask } = require('../controllers/paymentController');
-const { displaySaving, addSaving ,deleteSaving } = require('../controllers/savingController');
+const { displaySaving, addSaving ,editSaving, deleteSaving } = require('../controllers/savingController');
 const { displayDolar } = require('../controllers/dolarController');
 const { displayInvest } = require('../controllers/investController');
 const { displayProm } = require('../controllers/promController');
@@ -27,6 +27,7 @@ app.post('/deleteTask/:id', deleteTask)
 app.post('/editTask/:id', editTask)
 app.get('/saving', displaySaving)
 app.post('/addSaving', addSaving)
+app.post('/editSaving/:id', editSaving)
 app.post('/deleteSaving/:id', deleteSaving)
 app.get('/dolarToday', displayDolar)
 app.get('/invest', displayInvest)

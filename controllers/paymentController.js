@@ -59,7 +59,6 @@ const createTask = async (req, res) => {
 }
 
 const editTask = async (req, res) => {
-  console.log('Cuerpo de la solicitud:', req.body);
   const tareaId = req.body.id;
   const usuarioId = req.session.user ? req.session.user.id : null;
   const { descrip, date_ini, date_end } = req.body;
@@ -78,7 +77,6 @@ const editTask = async (req, res) => {
               { where: { id: tareaId } }
           );
           
-          console.log(`Tarea con ID ${tareaId} editada exitosamente.`); 
           res.json({ success: true }); 
       } else {
           res.status(404).send('Tarea no encontrada.');
