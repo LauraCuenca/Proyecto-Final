@@ -272,7 +272,7 @@ body.dark-mode .container {
   margin: 0 auto;
   padding: 20px;
   border-radius: 0 4px 8px rgba(0,0,0, 0.1);
-  background-color: #eeeded;
+  background-color: #ffffffa2;
 }
 #loginForm label{
   display: block;
@@ -282,23 +282,20 @@ body.dark-mode .container {
 #loginForm button{
   width: 100%;
   padding: 10px;
-  background-color: #617283;
   border-radius: 4px;
   cursor: pointer;
-}
-#loginForm button:hover{
-  color: black;
-  background-color: #343a41;
 }
 #loginForm a{
   max-width: 400px;
 }
+
 /* Register */
 
 #registerForm{
   max-width: 400px;
   margin: 0 auto;
-  background-color: #eeeded;
+  padding: 20px;
+  background-color: #ffffffa2;
 }
 #registerForm label{
   display: block;
@@ -307,9 +304,8 @@ body.dark-mode .container {
 }
 #registerForm input{
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 15px;
-  border-radius: 4px;
 }
 #registerForm button{
   width: 100%;
@@ -317,9 +313,5 @@ body.dark-mode .container {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  background-color: #617283;
-}
-#registerForm button:hover{
-  background-color: #343a41;
 }
 
