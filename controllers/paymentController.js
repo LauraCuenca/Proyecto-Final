@@ -1,28 +1,38 @@
 const Task = require('../db/models/task.js'); 
 
 const displayPayment = async (req, res) => {
-  try {
-    const data = await Task.findAll();
-    const tareasOrdenadas = data.sort((a, b) => a.date_ini - b.date_ini);
-    
-    // Formatea las fechas antes de enviarlas a la vista
-    const tareasFormateadas = tareasOrdenadas.map(tarea => {
-      return {
-        ...tarea.dataValues,
-        date_ini: new Date(tarea.date_ini).toLocaleDateString(), 
-        date_end: new Date(tarea.date_end).toLocaleDateString() 
-      };
-    });
-
-    res.render('payment', { 
-      user: req.session.user || null, 
-      tareas: tareasFormateadas 
-    });
-  } catch (error) {
-    console.error('Error al cargar las tareas:', error);
-    res.send('Hubo un error al cargar las tareas.');
-  }
-};
+    try {
+      // Asegúrate de tener el ID del usuario en la sesión
+      const userId = req.session.user.id;
+  
+      // Filtra las tareas por el usuario actual
+      const data = await Task.findAll({
+        where: {
+          userId: userId
+        }
+      });
+  
+      const tareasOrdenadas = data.sort((a, b) => a.date_ini - b.date_ini);
+  
+      // Formatea las fechas antes de enviarlas a la vista
+      const tareasFormateadas = tareasOrdenadas.map(tarea => {
+        return {
+          ...tarea.dataValues,
+          date_ini: new Date(tarea.date_ini).toLocaleDateString(), 
+          date_end: new Date(tarea.date_end).toLocaleDateString() 
+        };
+      });
+  
+      res.render('payment', { 
+        user: req.session.user || null, 
+        tareas: tareasFormateadas 
+      });
+    } catch (error) {
+      console.error('Error al cargar las tareas:', error);
+      res.send('Hubo un error al cargar las tareas.');
+    }
+  };
+  
 
 
 const createTask = async (req, res) => {
