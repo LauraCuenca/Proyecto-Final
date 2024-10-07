@@ -75,6 +75,7 @@
           <strong>Descripción:</strong> <%= tarea.descrip %><br>
           <strong>Fecha de Inicio:</strong> <%= tarea.date_ini %><br>
           <strong>Fecha de Fin:</strong> <%= tarea.date_end %>
+          <button type="button" class="btn btn-warning" onclick="mostrarFormularioEdicion('<%= tarea.id %>', '<%= tarea.descrip %>', '<%= tarea.date_ini %>', '<%= tarea.date_end %>')">Editar Info</button>
           <button type="button" class="btn btn-danger" onclick="deleteTask('<%= tarea.id %>')">Eliminar</button>
         </li>
         <hr> 
@@ -83,7 +84,29 @@
       <li>No hay lista de Pagos por el momento.</li>
     <% } %>
   </ul>
+
+  <div id="editFormContainer" style="display: none;">
+    <h3>Editar Tarea</h3>
+    <form id="editTaskForm" method="post">
+      <input type="hidden" id="taskId" name="id">
+      <div class="form-group">
+        <label for="editDescription">Descripción</label>
+        <input type="text" id="editDescription" name="descrip" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="editDateIni">Fecha de Inicio</label>
+        <input type="date" id="editDateIni" name="date_ini" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="editDateEnd">Fecha de Fin</label>
+        <input type="date" id="editDateEnd" name="date_end" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary" onclick="editTask()">Guardar Cambios</button>
+    </form>
+  </div>
 </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -145,6 +168,55 @@ function deleteTask(taskId) {
   }
 }
 </script>
+<script>
+   function mostrarFormularioEdicion(id, descrip, date_ini, date_end) {
+    // Mostrar el formulario de edición
+    document.getElementById('editFormContainer').style.display = 'block';
+
+    const taskId = id;
+    console.log(taskId);
+    document.getElementById('taskId').value = taskId;
+    document.getElementById('editDescription').value = descrip;
+    document.getElementById('editDateIni').value = new Date(date_ini).toISOString().split('T')[0];
+    document.getElementById('editDateEnd').value = new Date(date_end).toISOString().split('T')[0];
+}
+
+async function editTask() {
+    const taskId = document.getElementById('taskId').value; 
+    console.log("Task ID:", taskId); // Verifica el taskId
+    const descripcion = document.getElementById('editDescription').value;
+    const fechaInicio = document.getElementById('editDateIni').value; 
+    const fechaFin = document.getElementById('editDateEnd').value; 
+
+    try {
+        const response = await fetch(`/editTask/${taskId}`, {
+            method: 'POST',
+            body: JSON.stringify({
+                id: taskId,
+                descrip: descripcion,
+                date_ini: fechaInicio,
+                date_end: fechaFin
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            alert('Tarea actualizada exitosamente.');
+            location.href = location.href; 
+        } else {
+            const errorText = await response.text(); 
+            console.error('Error en la respuesta:', errorText); 
+            alert('Error al actualizar la tarea: ' + errorText);
+        }
+    } catch (error) {
+        console.error('Error al realizar la solicitud:', error);
+        alert('Hubo un error al procesar la solicitud.');
+    }
+}
+</script>
+
 
 </body>
 </html>

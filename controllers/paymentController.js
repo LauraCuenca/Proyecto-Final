@@ -18,8 +18,8 @@ const displayPayment = async (req, res) => {
       const tareasFormateadas = tareasOrdenadas.map(tarea => {
         return {
           ...tarea.dataValues,
-          date_ini: new Date(tarea.date_ini).toLocaleDateString(), 
-          date_end: new Date(tarea.date_end).toLocaleDateString() 
+          date_ini: new Date(tarea.date_ini).toISOString().split('T')[0], 
+          date_end: new Date(tarea.date_end).toISOString().split('T')[0] 
         };
       });
   
@@ -58,6 +58,38 @@ const createTask = async (req, res) => {
     }
 }
 
+const editTask = async (req, res) => {
+  console.log('Cuerpo de la solicitud:', req.body);
+  const tareaId = req.body.id;
+  const usuarioId = req.session.user ? req.session.user.id : null;
+  const { descrip, date_ini, date_end } = req.body;
+
+  try {
+      const tarea = await Task.findOne({
+          where: {
+              id: tareaId,
+              userId: usuarioId 
+          }
+      });
+
+      if (tarea) {
+          await Task.update(
+              { descrip, date_ini, date_end },
+              { where: { id: tareaId } }
+          );
+          
+          console.log(`Tarea con ID ${tareaId} editada exitosamente.`); 
+          res.json({ success: true }); 
+      } else {
+          res.status(404).send('Tarea no encontrada.');
+      }
+  } catch (error) {
+      console.error('Error al editar la tarea:', error);
+      res.status(500).send('Hubo un error al editar la tarea.');
+  }
+};
+
+
 const deleteTask = async (req, res) => {
     const tareaId = req.params.id; 
     const usuarioId = req.session.user ? req.session.user.id : null;
@@ -91,6 +123,7 @@ const deleteTask = async (req, res) => {
 module.exports = {
     displayPayment,
     createTask,
+    editTask,
     deleteTask
 }
 

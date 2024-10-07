@@ -3,7 +3,7 @@ const app = express.Router();
 const { displayIndex } = require('../controllers/indexController');
 const { displayLogin, validateLogin, logout } = require('../controllers/loginController');
 const { displayRegister, register, checkMail } = require('../controllers/regController');
-const { displayPayment, createTask, deleteTask } = require('../controllers/paymentController');
+const { displayPayment, createTask, editTask, deleteTask } = require('../controllers/paymentController');
 const { displaySaving, addSaving ,deleteSaving } = require('../controllers/savingController');
 const { displayDolar } = require('../controllers/dolarController');
 const { displayInvest } = require('../controllers/investController');
@@ -24,6 +24,7 @@ app.post('/checkMail', checkMail)
 app.get('/payment', displayPayment)
 app.post('/createTask', createTask)
 app.post('/deleteTask/:id', deleteTask)
+app.post('/editTask/:id', editTask)
 app.get('/saving', displaySaving)
 app.post('/addSaving', addSaving)
 app.post('/deleteSaving/:id', deleteSaving)
