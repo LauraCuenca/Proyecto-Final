@@ -68,7 +68,7 @@ const register = async (req, res) => {
         rol: rol,
     })
     .then(user => {
-        res.redirect('/');
+        res.redirect('login');
     })
     .catch(error => {
         console.error('Error al crear usuario:', error);
