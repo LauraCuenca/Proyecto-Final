@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FiLinker - Tus Finanzas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg" style="background-color: #CAD2C5; box-shadow: 0 1px 1px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">FiLinker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <% if (user) { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/payment">Pago de Deudas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/saving">Ahorro</a>
+            </li>
+        <% } %>
+          <li class="nav-item">
+            <a class="nav-link" href="/invest">Inversiones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/promo">Promociones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dolarToday">Dolar Hoy</a>
+          </li>
+        </ul>
+        <div class="d-flex justify-content-end ms-auto">
+          <% if (user) { %>
+            <button id="logoutBtn" class="btn-custom me-3">Cerrar sesión</button>
+          <% } else { %>
+            <a href="/login" class="btn btn-secondary me-3" role="button">Iniciar Sesión</a>
+          <% } %>
+        <button id="darkModeBtn" class="btn btn-secondary">Modo Oscuro</button>
+        </div>
+      </div> 
+    </div>
+  </nav>
+<div class="container mt-5">
+  <h1 class="text-center">Mis Metas de Ahorro</h1>
+
+  <form id="goalForm" action="/addSaving" method="POST">
+    <label for="goalName">Descripcion de tu objetivo:</label>
+    <input type="hidden" name="userId" value="<%= user.id %>">
+    <input type="text" id="goalName" placeholder="Ej: Mi primer auto" name="goalName" required>
+    
+    <label for="goalAmount">Valor de tu objetivo ($):</label>
+    <input type="number" id="goalAmount" placeholder="Ej: $1.000.000" name="goalAmount" required>
+    
+    <label for="savedAmount">Monto Inicial Ahorrado ($):</label>
+    <input type="number" id="savedAmount" placeholder="Ej: 100.000" name="savedAmount" required>
+    
+    <button type="submit">Establecer Objetivo</button>
+</form>
+  <ul id="goalList"></ul>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+  <h1>Lista de Ahorros</h1>
+  <ul>
+      <% if (savings.length > 0) { %>
+          <% savings.forEach(saving => { %>
+              <li>
+                  <strong>Nombre:</strong> <%= saving.name %><br>
+                  <strong>Monto Objetivo:</strong> <%= saving.monto_obj %><br>
+                  <strong>Monto Ahorrado:</strong> <%= saving.monto_ah %><br>
+                  <strong>Color:</strong> <%= saving.color %>
+                  <button type="button" class="btn btn-danger" onclick="deleteSaving('<%= saving.id %>')">Eliminar</button>
+              </li>
+              <hr>
+          <% }); %>
+      <% } else { %>
+          <li>No hay ahorros por el momento.</li>
+      <% } %>
+  </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    const body = document.body;
+
+    darkModeBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      darkModeBtn.textContent = body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
+    });
+
+    // Manejo del botón de cerrar sesión
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        fetch('/logout', {
+          method: 'POST',
+          credentials: 'include' 
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/'; 
+          } else {
+            console.error('Error al cerrar sesión');
+          }
+        })
+        .catch(error => console.error('Error:', error));
+      });
+    }
+  });
+</script>
+<script>
+  function deleteSaving(savingId) {
+      const confirmed = confirm("¿Estás seguro de que deseas eliminar este ahorro?");
+      if (confirmed) {
+          // Realiza una solicitud POST para eliminar el ahorro
+          fetch(`/deleteSaving/${savingId}`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Error al eliminar el ahorro.');
+              }
+              return response.json(); 
+          })
+          .then(data => {
+              console.log("Ahorro eliminado exitosamente.");
+              location.reload(); 
+          })
+          .catch(error => console.error("Error en la solicitud:", error));
+      }
+  }
+  </script>  
+
+</body>
+</html>

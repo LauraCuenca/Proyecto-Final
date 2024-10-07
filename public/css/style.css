@@ -1,0 +1,317 @@
+body {
+  background-color: #84A98C;
+  font-family: Arial, sans-serif;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+h1 {
+  color: #ffffff;
+}
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  background-color: #CAD2C5;
+  box-shadow: 0 0 15px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+form {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #CAD2C5;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+}
+
+input[type="text"], input[type="date"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: calc(100% - 22px);
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #343a41;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.3s;
+}
+
+button:hover {
+  background-color: #617283;
+  color: black;
+} 
+
+.btn-custom {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #343a41;
+  color: white; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.3s; 
+}
+
+.btn-custom:focus {
+  outline: none; 
+}
+
+.btn:hover{
+  background-color: #617283;
+  color: black;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #CAD2C5;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-item button {
+  margin-left: 5px;
+  width: 100px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgb(102, 101, 101);
+}
+
+.task-name {
+  font-weight: bold;
+  width: 200px;
+}
+
+.task-dates {
+  margin: 0 10px;
+  width: 200px;
+}
+
+.btn {
+  background-color: #6c757d;
+  color: white;
+}
+body.dark-mode {
+  background-color: #474747;
+}
+body.dark-mode .navbar {
+  background-color: #2b2b2b;
+}
+body.dark-mode .btn {
+  background-color: #343a41;
+  color: white;
+}
+body.dark-mode .btn:hover{
+  background-color: #6c757d;
+}
+.navbar .btn {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* index */
+.custom-card{
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover{
+  transform: scale(1.07);
+}
+
+/* Ahorro */
+
+#goalList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goal-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.progress {
+  height: 20px;
+  border-radius: 5px;
+}
+
+.progress-text {
+  text-align: right;
+  font-weight: bold;
+  margin-top: -25px;
+  margin-right: 5px;
+}
+
+button.edit {
+  background-color: #32cd32;
+}
+
+button.delete {
+  background-color: #ff6347;
+  margin-left: 10px;
+}
+
+button.add-amount {
+  background-color: #ffa500;
+  margin-left: 10px;
+}
+
+/* DolarToday */
+.container iframe{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1280px;
+}
+
+#dolar-oficial, #dolar-blue, #dolar-tarjeta, #dolar-cripto{
+  border: 2px solid #262627;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto;
+  width: 50%;
+  background-color: #f8f9fa;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Inversiones */
+.simulator-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.result{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-body:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Promociones */
+.promocontainer{
+  width: 80%;
+  margin:auto;
+  margin-top: 80px;
+}
+
+.promocontainer img{
+  width: 40%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.promocontainer ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.promocontainer li{
+  border-bottom: 1px solid black;
+  padding-left: 20px;
+}
+
+
+/* Body */
+body.dark-mode .simulator-container{
+  border: 3px solid white;
+  background-color: #CAD2C5;
+  box-shadow: 0 0 10px rgb(163, 163, 163);
+}
+
+body.dark-mode .container {
+  border: 3px solid white;
+  box-shadow: 0 0 10px rgb(163, 163, 163);
+}
+
+/* Sesion */
+
+#loginForm{
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 0 4px 8px rgba(0,0,0, 0.1);
+  background-color: #ffffffa2;
+}
+#loginForm label{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#loginForm button{
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#loginForm a{
+  max-width: 400px;
+}
+
+/* Register */
+
+#registerForm{
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffffa2;
+}
+#registerForm label{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#registerForm input{
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+#registerForm button{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+

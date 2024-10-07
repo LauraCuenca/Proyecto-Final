@@ -1,0 +1,69 @@
+[
+    {
+        "name": "Naranja X",
+        "img":"../img/naranjax.png",
+        "promociones": [
+            {
+                "lugar": "Jumbo",
+                "promo": "Cuotas sin interés",
+                "descuento": 0,
+                "detalles": "Realizá tus compras en Jumbo con la tarjeta NaranjaX y aprovecha las cuotas sin interés en todos los productos, permitiendo financiar tus gastos sin pagar intereses adicionales.",
+                "inversiones": "Al utilizar las cuotas sin interés, podés destinar el dinero ahorrado en el corto plazo a inversiones que generen rendimiento, optimizando tu flujo de caja."
+            },
+            {
+                "lugar": "Vea",
+                "promo": "Cuotas sin interés",
+                "descuento": 0,
+                "detalles": "En Vea, podés utilizar la tarjeta NaranjaX para acceder a cuotas sin interés, dándote mayor flexibilidad para tus compras cotidianas.",
+                "inversiones": "El hecho de no tener que pagar todo de una vez te permite invertir el capital restante en instrumentos financieros, como plazos fijos o fondos comunes de inversión, mientras pagás en cuotas."
+            },
+            {
+                "lugar": "Mayor",
+                "promo": "6 cuotas sin interés",
+                "descuento": 0,
+                "detalles": "Compras en Mayor y pagás en 6 cuotas sin interés con NaranjaX, ideal para compras de grandes volúmenes o productos de mayor valor.",
+                "inversiones": "Las cuotas a largo plazo permiten liberar efectivo, que podés invertir en oportunidades de crecimiento, aprovechando la estabilidad financiera que ofrece la falta de interés."
+            }
+        ]
+    },
+    {
+        "name": "Cuenta DNI",
+        "img":"../img/cuentadni.png",
+        "promociones": [
+            {
+                "lugar": "Todos los supermercados",
+                "promo": "20% de descuento todos los días con un tope de reintegro de $5000",
+                "descuento": "20%",
+                "detalles": "Con Cuenta DNI podés ahorrar un 20% en cualquier supermercado, válido todos los días. El tope de reintegro mensual es de $5000.",
+                "inversiones": "El ahorro en cada compra puede destinarse a pequeños instrumentos de inversión, como cuentas remuneradas o criptomonedas, maximizando el rendimiento del dinero que no estás gastando."
+            }
+        ]
+    },
+    {
+        "name": "Modo",
+        "img":"../img/modo.png",
+        "promociones": [
+            {
+                "lugar": "Carrefour",
+                "promo": "25% de descuento todos los sábados pagando con Visa BBVA",
+                "descuento": "25%",
+                "detalles": "Pagando con MODO y tarjetas Visa del BBVA, podés ahorrar un 25% en Carrefour todos los sábados. Una oportunidad excelente para hacer las compras del fin de semana.",
+                "inversiones": "El descuento del 25% puede reinvertirse en productos financieros a corto plazo, como bonos o acciones, generando una ganancia adicional sobre el ahorro."
+            },
+            {
+                "lugar": "Makro",
+                "promo": "30% de descuento todos los viernes con tarjetas de crédito, débito y prepagas",
+                "descuento": "30%",
+                "detalles": "En Makro, cada viernes podés aprovechar un 30% de descuento pagando con MODO, utilizando tarjetas de crédito, débito o prepagas. Ideal para compras en mayoristas.",
+                "inversiones": "El ahorro significativo del 30% en Makro puede reinvertirse en fondos comunes o plazos fijos, generando rendimientos adicionales sobre lo que no se gasta en compras."
+            },
+            {
+                "lugar": "La Anónima",
+                "promo": "30% de descuento todos los viernes con tarjetas de crédito del Banco Santa Cruz",
+                "descuento": "30%",
+                "detalles": "Todos los viernes, si pagás con MODO usando tarjetas del Banco Santa Cruz, obtenés un 30% de descuento en La Anónima. ¡Perfecto para maximizar tus ahorros en esta cadena de supermercados!",
+                "inversiones": "El descuento te permite liberar dinero que podés destinar a inversiones a largo plazo, como acciones o bienes raíces, maximizando el valor de tus ahorros."
+            }
+        ]
+    }
+]
