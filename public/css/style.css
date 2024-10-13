@@ -1,7 +1,7 @@
 body {
   background-color: #84A98C;
-  font-family: Arial, sans-serif;
-  transition: background-color 1s ease, color 1s ease;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 2s ease, color 1s ease;
 }
 
 h1 {
@@ -115,15 +115,13 @@ button:hover {
 body.dark-mode {
   background-color: #474747;
 }
-body.dark-mode .navbar {
-  background-color: #2b2b2b;
-}
 body.dark-mode .btn {
-  background-color: #343a41;
-  color: white;
+  background-color: white;
+  color:  black;
+  border: 2px solid black;
 }
 body.dark-mode .btn:hover{
-  background-color: #6c757d;
+  transform: scale(1.10);
 }
 .navbar .btn {
   margin-top: 0;
@@ -189,14 +187,6 @@ button.add-amount {
   margin-left: 10px;
 }
 
-/* DolarToday */
-.container iframe{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1280px;
-}
-
 #dolar-oficial, #dolar-blue, #dolar-tarjeta, #dolar-cripto{
   border: 2px solid #262627;
   border-radius: 10px;
@@ -251,20 +241,6 @@ button.add-amount {
   border-bottom: 1px solid black;
   padding-left: 20px;
 }
-
-
-/* Body */
-body.dark-mode .simulator-container{
-  border: 3px solid white;
-  background-color: #CAD2C5;
-  box-shadow: 0 0 10px rgb(163, 163, 163);
-}
-
-body.dark-mode .container {
-  border: 3px solid white;
-  box-shadow: 0 0 10px rgb(163, 163, 163);
-}
-
 /* Sesion */
 
 #loginForm{
@@ -315,3 +291,61 @@ body.dark-mode .container {
   cursor: pointer;
 }
 
+/* darkmode */
+
+.dark-mode .card{
+  background-color: #5d6166;
+  color: white;
+  border: 2px solid #000000a2;
+}
+
+body.dark-mode {
+  font-family: 'Merriweather', serif;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+body.dark-mode .simulator-container{
+  border: 3px solid white;
+  background-color: #52796f;
+  box-shadow: 0 0 10px rgb(163, 163, 163);
+  color: white;
+}
+
+body.dark-mode .container {
+  border: 3px solid white;
+  box-shadow: 0 0 10px rgb(163, 163, 163);
+  background-color: #52796f;
+}
+
+.dark-mode form{
+  background-color: #5d6166;
+  color: white;
+}
+.dark-mode form button{
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.dark-mode form button:hover{
+  transform: scale(1.10);
+}
+
+/* navbar */
+
+.navbar{
+  background-color: #CAD2C5;
+  box-shadow: 0px 1px 1px;
+}
+.navbar-nav .nav-link{
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.navbar-nav .nav-link:hover{
+  color: white;
+  border-radius: 8px;
+}
+.dark-mode .navbar{
+  background-color: #52796f;
+  border: 1px solid white;
+}
