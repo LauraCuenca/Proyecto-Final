@@ -15,7 +15,6 @@ Modo Oscuro
 - Interfaz Amigable: Diseño moderno y fácil de usar. <br>
 - Integración con API: Capacidad para chequear el valor del dolar en el dia actual.<br>
 - Modo Claro/Oscuro: Alterna entre modos de visualización para mayor comodidad. <br>
-<br>
 
 ## Tecnologías Utilizadas
 - Node.js
