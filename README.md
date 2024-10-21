@@ -5,10 +5,10 @@ Además, la API integra una funcionalidad para consultar el valor del dólar en 
 
 Este conjunto de herramientas financieras facilita la planificación y el control financiero, ayudando a los usuarios a tomar decisiones informadas sobre sus ahorros e inversiones, así como a aprovechar descuentos y promociones disponibles en las principales billeteras virtuales.
 
-<img src="https://github.com/user-attachments/assets/b67fe95e-5ff0-4533-aec2-04334dd71a24" alt="Descripción de la imagen" width="800" />
+<img src="https://github.com/user-attachments/assets/b67fe95e-5ff0-4533-aec2-04334dd71a24" alt="Descripción de la imagen" width="900" />
 
-Modo Oscuro
-<img src="https://github.com/user-attachments/assets/c12094af-2180-4eca-9f6e-90e05940bad5" alt="Descripción de la imagen" width="800" />
+Modo Oscuro<br>
+<img src="https://github.com/user-attachments/assets/c12094af-2180-4eca-9f6e-90e05940bad5" alt="Descripción de la imagen" width="900" />
 
 ## Características
 - Registro de Usuarios: Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
