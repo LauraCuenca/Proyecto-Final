@@ -12,26 +12,25 @@ Modo Oscuro<br>
 
 ## Características
 - **Registro de Usuarios:** Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
-  <img src="https://github.com/user-attachments/assets/ed8823fd-3619-45ae-a36a-7caed90d0efb" alt="Descripción de la imagen" width="400" />
+  <img src="https://github.com/user-attachments/assets/ed8823fd-3619-45ae-a36a-7caed90d0efb" alt="Descripción de la imagen" width="700" />
   
 - **Inicio de Sesión Seguro:** Autenticación protegida con contraseñas encriptadas para mantener la seguridad de la cuenta. <br>
-  <img src="https://github.com/user-attachments/assets/863d3482-7de9-4cb9-a3cd-7c5a63df929f" alt="Descripción de la imagen" width="400" />
+  <img src="https://github.com/user-attachments/assets/863d3482-7de9-4cb9-a3cd-7c5a63df929f" alt="Descripción de la imagen" width="700" />
 
 - **Lista de Deudas:** Funcionalidad que permite a los usuarios llevar un registro de sus deudas, con detalles sobre montos y fechas de pago. <br>
-  <img src="https://github.com/user-attachments/assets/505f93b1-7be7-41b6-b772-3ef023e1e00e" alt="Descripción de la imagen" width="600" />
+  <img src="https://github.com/user-attachments/assets/505f93b1-7be7-41b6-b772-3ef023e1e00e" alt="Descripción de la imagen" width="700" />
   
 - **Metas de Ahorro:** Herramienta para establecer y seguir metas de ahorro, ayudando a los usuarios a gestionar sus finanzas personales de manera efectiva. <br>
-  <img src="https://github.com/user-attachments/assets/12e00325-3f4d-44b2-a66c-6538e3c4e81b" alt="Descripción de la imagen" width="600" />
+  <img src="https://github.com/user-attachments/assets/12e00325-3f4d-44b2-a66c-6538e3c4e81b" alt="Descripción de la imagen" width="700" />
   
 - **Simulador de Inversiones:** Permite a los usuarios calcular posibles rendimientos de sus inversiones, ayudándolos a tomar decisiones informadas. <br>
-  <img src="https://github.com/user-attachments/assets/3b5496e0-0baf-4625-bb4b-9ba55638ec06" alt="Descripción de la imagen" width="600" />
+  <img src="https://github.com/user-attachments/assets/3b5496e0-0baf-4625-bb4b-9ba55638ec06" alt="Descripción de la imagen" width="700" />
   
 - **Integración con API:** Capacidad para chequear el valor del dólar en el día actual, proporcionando información actualizada para la gestión financiera. <br>
-  <img src="https://github.com/user-attachments/assets/39c27157-57a5-40d9-834f-d87580b909e8" alt="Descripción de la imagen" width="600" />
+  <img src="https://github.com/user-attachments/assets/39c27157-57a5-40d9-834f-d87580b909e8" alt="Descripción de la imagen" width="700" />
   
 - **Listado de Promociones con Billeteras Virtuales:** Presenta a los usuarios las mejores promociones y descuentos disponibles al utilizar billeteras virtuales. <br>
-  <img src="https://github.com/user-attachments/assets/1095d74a-56d3-4ff8-8565-f62b9a89f763" alt="Descripción de la imagen" width="600" />
-
+  <img src="https://github.com/user-attachments/assets/1095d74a-56d3-4ff8-8565-f62b9a89f763" alt="Descripción de la imagen" width="700" />
 
 ## Tecnologías Utilizadas
 - Node.js
