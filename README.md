@@ -1,19 +1,21 @@
 # FiLink- Api Rest Financiera
-Este proyecto es una API REST diseñada para ayudar a los usuarios a gestionar sus finanzas de manera efectiva. 
-La API permite realizar diversas operaciones, como calcular simulaciones de inversión, implementar un sistema de ahorro, gestionando una lista de ahorros (to-do list) y consultar descuentos ofrecidos por billeteras virtuales.
+Este proyecto es una API REST diseñada para ayudar a los usuarios a gestionar sus finanzas de manera efectiva. La API permite realizar diversas operaciones, como calcular simulaciones de inversión, implementar un sistema de ahorro mediante la gestión de una lista de ahorros (to-do list), y consultar descuentos ofrecidos por billeteras virtuales.
+
+Además, la API integra una funcionalidad para consultar el valor del dólar en tiempo real, lo que es especialmente útil para aquellos usuarios que manejan inversiones o ahorros en moneda extranjera. Junto con esto, el proyecto incluye un simulador de inversiones que permite a los usuarios calcular cómo crecerían sus fondos en función de diferentes parámetros como el monto inicial, la tasa de interés y el periodo de inversión.
+
+Este conjunto de herramientas financieras facilita la planificación y el control financiero, ayudando a los usuarios a tomar decisiones informadas sobre sus ahorros e inversiones, así como a aprovechar descuentos y promociones disponibles en las principales billeteras virtuales.
 
 ![image](https://github.com/user-attachments/assets/b67fe95e-5ff0-4533-aec2-04334dd71a24)
 Modo Oscuro
 ![image](https://github.com/user-attachments/assets/c12094af-2180-4eca-9f6e-90e05940bad5)
 
-
-
 ## Características
+- Registro de Usuarios: Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
+- Inicio de Sesión Seguro: Autenticación protegida con contraseñas encriptadas para mantener la seguridad de la cuenta.
 - Interfaz Amigable: Diseño moderno y fácil de usar. <br>
 - Integración con API: Capacidad para chequear el valor del dolar en el dia actual.<br>
 - Modo Claro/Oscuro: Alterna entre modos de visualización para mayor comodidad. <br>
-- Registro de Usuarios: Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
-- Inicio de Sesión Seguro: Autenticación protegida con contraseñas encriptadas para mantener la seguridad de la cuenta.<br>
+<br>
 
 ## Tecnologías Utilizadas
 - Node.js
