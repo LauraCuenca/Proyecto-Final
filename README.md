@@ -11,20 +11,27 @@ Modo Oscuro<br>
 <img src="https://github.com/user-attachments/assets/c12094af-2180-4eca-9f6e-90e05940bad5" alt="Descripción de la imagen" width="900" />
 
 ## Características
-- Registro de Usuarios: Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
-<img src="https://github.com/user-attachments/assets/6c0924ee-8d40-4528-b364-155775a61f2f" alt="Descripción de la imagen" width="600" />
-- Inicio de Sesión Seguro: Autenticación protegida con contraseñas encriptadas para mantener la seguridad de la cuenta.
-<img src="https://github.com/user-attachments/assets/31ee94c8-9c17-4f1d-8c42-0a82f0b212f8" alt="Descripción de la imagen" width="600" />
-- Lista de deudas
-<img src="https://github.com/user-attachments/assets/505f93b1-7be7-41b6-b772-3ef023e1e00e" alt="Descripción de la imagen" width="400" />
-- Metas de ahorro
-<img src="https://github.com/user-attachments/assets/12e00325-3f4d-44b2-a66c-6538e3c4e81b" alt="Descripción de la imagen" width="400" />
-- Simulador de inversiones. <br>
-<img src="https://github.com/user-attachments/assets/83ec49f5-8699-4fa8-ad53-b97c03690f80" alt="Descripción de la imagen" width="600" />
-- Integración con API: Capacidad para chequear el valor del dolar en el dia actual.<br>
-<img src="https://github.com/user-attachments/assets/ff6ed7e8-c2b7-4449-91f4-6520edcdf84c" alt="Descripción de la imagen" width="600" />
-- Listado de Promociones con billeteras virtuales <br>
-<img src="https://github.com/user-attachments/assets/1095d74a-56d3-4ff8-8565-f62b9a89f763" alt="Descripción de la imagen" width="600" />
+- **Registro de Usuarios:** Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
+  <img src="https://github.com/user-attachments/assets/6c0924ee-8d40-4528-b364-155775a61f2f" alt="Descripción de la imagen" width="400" />
+  
+- **Inicio de Sesión Seguro:** Autenticación protegida con contraseñas encriptadas para mantener la seguridad de la cuenta. <br>
+  <img src="https://github.com/user-attachments/assets/31ee94c8-9c17-4f1d-8c42-0a82f0b212f8" alt="Descripción de la imagen" width="400" />
+  
+- **Lista de Deudas:** Funcionalidad que permite a los usuarios llevar un registro de sus deudas, con detalles sobre montos y fechas de pago. <br>
+  <img src="https://github.com/user-attachments/assets/505f93b1-7be7-41b6-b772-3ef023e1e00e" alt="Descripción de la imagen" width="600" />
+  
+- **Metas de Ahorro:** Herramienta para establecer y seguir metas de ahorro, ayudando a los usuarios a gestionar sus finanzas personales de manera efectiva. <br>
+  <img src="https://github.com/user-attachments/assets/12e00325-3f4d-44b2-a66c-6538e3c4e81b" alt="Descripción de la imagen" width="600" />
+  
+- **Simulador de Inversiones:** Permite a los usuarios calcular posibles rendimientos de sus inversiones, ayudándolos a tomar decisiones informadas. <br>
+  <img src="https://github.com/user-attachments/assets/83ec49f5-8699-4fa8-ad53-b97c03690f80" alt="Descripción de la imagen" width="600" />
+  
+- **Integración con API:** Capacidad para chequear el valor del dólar en el día actual, proporcionando información actualizada para la gestión financiera. <br>
+  <img src="https://github.com/user-attachments/assets/ff6ed7e8-c2b7-4449-91f4-6520edcdf84c" alt="Descripción de la imagen" width="600" />
+  
+- **Listado de Promociones con Billeteras Virtuales:** Presenta a los usuarios las mejores promociones y descuentos disponibles al utilizar billeteras virtuales. <br>
+  <img src="https://github.com/user-attachments/assets/1095d74a-56d3-4ff8-8565-f62b9a89f763" alt="Descripción de la imagen" width="600" />
+
 
 ## Tecnologías Utilizadas
 - Node.js
