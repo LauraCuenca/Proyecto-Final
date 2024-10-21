@@ -12,10 +12,19 @@ Modo Oscuro<br>
 
 ## Características
 - Registro de Usuarios: Permite a los usuarios crear una cuenta para acceder a contenido exclusivo. <br>
+<img src="https://github.com/user-attachments/assets/6c0924ee-8d40-4528-b364-155775a61f2f" alt="Descripción de la imagen" width="600" />
 - Inicio de Sesión Seguro: Autenticación protegida con contraseñas encriptadas para mantener la seguridad de la cuenta.
-- Interfaz Amigable: Diseño moderno y fácil de usar. <br>
+<img src="https://github.com/user-attachments/assets/31ee94c8-9c17-4f1d-8c42-0a82f0b212f8" alt="Descripción de la imagen" width="600" />
+- Lista de deudas
+<img src="https://github.com/user-attachments/assets/505f93b1-7be7-41b6-b772-3ef023e1e00e" alt="Descripción de la imagen" width="400" />
+- Metas de ahorro
+<img src="https://github.com/user-attachments/assets/12e00325-3f4d-44b2-a66c-6538e3c4e81b" alt="Descripción de la imagen" width="400" />
+- Simulador de inversiones. <br>
+<img src="https://github.com/user-attachments/assets/83ec49f5-8699-4fa8-ad53-b97c03690f80" alt="Descripción de la imagen" width="600" />
 - Integración con API: Capacidad para chequear el valor del dolar en el dia actual.<br>
-- Modo Claro/Oscuro: Alterna entre modos de visualización para mayor comodidad. <br>
+<img src="https://github.com/user-attachments/assets/ff6ed7e8-c2b7-4449-91f4-6520edcdf84c" alt="Descripción de la imagen" width="600" />
+- Listado de Promociones con billeteras virtuales <br>
+<img src="https://github.com/user-attachments/assets/1095d74a-56d3-4ff8-8565-f62b9a89f763" alt="Descripción de la imagen" width="600" />
 
 ## Tecnologías Utilizadas
 - Node.js
