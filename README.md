@@ -1,7 +1,11 @@
 # FiLink- Api Rest Financiera
 Este proyecto es una API REST diseñada para ayudar a los usuarios a gestionar sus finanzas de manera efectiva. 
 La API permite realizar diversas operaciones, como calcular simulaciones de inversión, implementar un sistema de ahorro, gestionando una lista de ahorros (to-do list) y consultar descuentos ofrecidos por billeteras virtuales.
+
 ![image](https://github.com/user-attachments/assets/b67fe95e-5ff0-4533-aec2-04334dd71a24)
+Modo Oscuro
+![image](https://github.com/user-attachments/assets/c12094af-2180-4eca-9f6e-90e05940bad5)
+
 
 
 ## Características
